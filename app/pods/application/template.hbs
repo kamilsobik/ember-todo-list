@@ -1,20 +1,19 @@
 {{page-title 'ToDo'}}
 
-<form class='row g-3'>
+<form class='row g-3' {{on 'submit' this.newTask}}>
   <div class='col-auto'>
-    <label for='inputPassword2' class='visually-hidden'>Password</label>
+    <label for='inputPassword2' class='visually-hidden'>New task</label>
     <input
-      type='password'
+      type='text'
       class='form-control'
       id='inputPassword2'
       placeholder='Password'
+      {{on 'input' this.onInputValue}}
     />
   </div>
   <div class='col-auto'>
-    <button type='submit' class='btn btn-primary mb-3'>Confirm identity</button>
+    <button type='submit' class='btn btn-primary mb-3'>New task</button>
   </div>
 </form>
-
 <List @items={{this.items}} />
-
 {{outlet}}
