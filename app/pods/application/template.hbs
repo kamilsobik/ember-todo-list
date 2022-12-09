@@ -1,19 +1,25 @@
 {{page-title 'ToDo'}}
-
-<form class='row g-3' {{on 'submit' this.newTask}}>
-  <div class='col-auto'>
-    <label for='inputPassword2' class='visually-hidden'>New task</label>
-    <input
-      type='text'
-      class='form-control'
-      id='inputPassword2'
-      placeholder='Password'
-      {{on 'input' this.onInputValue}}
-    />
-  </div>
-  <div class='col-auto'>
-    <button type='submit' class='btn btn-primary mb-3'>New task</button>
-  </div>
-</form>
-<List @items={{this.items}} />
+<div class='container mt-5'>
+  <form class='row g-3' {{on 'submit' this.addNewTask}}>
+    <div class='col-auto'>
+      <label for='inputPassword2' class='visually-hidden'>New task</label>
+      <input
+        type='text'
+        value={{this.newTaskValue}}
+        class='form-control'
+        id='inputPassword2'
+        placeholder='New task'
+        {{on 'input' this.onInputValue}}
+      />
+    </div>
+    <div class='col-auto'>
+      <button
+        type='submit'
+        class='btn btn-primary mb-3'
+        disabled={{this.hasEmptyValue}}
+      >New task</button>
+    </div>
+  </form>
+  <List @items={{this.model}} />
+</div>
 {{outlet}}
