@@ -1,16 +1,13 @@
 <li class='list-group-item'>
+  {{! template-lint-disable require-input-label }}
   <input
     class='form-check-input me-1'
     type='checkbox'
     value=''
     checked={{@item.isDone}}
-    id='firstCheckbox'
     {{on 'change' this.onToggleIsDone}}
   />
-  <label
-    class='form-check-label'
-    for='firstCheckbox'
-  >{{@item.description}}</label>
+  <LinkTo @route='task' @model='{{@item.id}}'>{{@item.description}}</LinkTo>
   <button
     type='button'
     class='btn btn-danger'

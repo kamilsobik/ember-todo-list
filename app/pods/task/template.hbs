@@ -1,0 +1,8 @@
+<div class='container mt-5'>
+  <h1>Tu bedzie nasz task:</h1>
+  <div>ID: {{this.model.description}}</div>
+  <div>Treść: {{this.model.description}}</div>
+  <div>Zrobiony?: {{if this.model.isDone 'Pewnie!' 'Nope'}}</div>
+  <div>Stworzony: {{this.model.prettyCreatedAt}}</div>
+  <div>Zaktualizowany: {{this.model.prettyUpdatedAt}}</div>
+</div>
